@@ -14,6 +14,7 @@ class Import extends Model
         'status',
         'success_count',
         'error_count',
+        'pending_tasks',
     ];
 }
 
