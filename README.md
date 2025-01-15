@@ -8,6 +8,9 @@
 - Node.js (opcjonalnie, jeśli używane)
 - Redis (do obsługi kolejek)
 
+**Dane testowe**
+W folderze `ExampleData` znajdują się przykładowe dane, które mogą być użyte do testowania aplikacji.
+
 ## Szybki start
 
 1. **Klonowanie repozytorium**
