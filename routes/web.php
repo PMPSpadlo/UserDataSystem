@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ImportController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,6 +16,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+Route::middleware(['auth', 'isAdmin'])->group(function () {
+    Route::get('/admin', [ImportController::class, 'dashboard'])->name('admin.dashboard');
+    Route::post('/import', [ImportController::class, 'handleUpload'])->name('import.upload');
+    Route::get('/export', [ImportController::class, 'exportUsers'])->name('export.users');
 });
 
 require __DIR__.'/auth.php';
